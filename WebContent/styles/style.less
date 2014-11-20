@@ -1,0 +1,237 @@
+@backgroundColor: #e9eaed;
+@textColor: #212121;
+@mainColor: #4285f4;
+
+@borderColor: #e5e5e5;
+@border: 1px solid @borderColor;
+
+body {
+  background: @backgroundColor;
+  color: @textColor;
+  padding: 20px;
+}
+
+.navbar {
+  background: @mainColor;
+}
+
+#news-feed {
+
+  .panel {
+
+    .panel-heading {
+      background: white;
+    }
+  }
+}
+
+
+
+.feed-item, .posts-item , .job-form{
+
+  background: white;
+  padding: 10px;
+  margin: 20px 0px;
+
+  border: @border;
+  border-bottom: 2px solid @borderColor;
+
+  transition: box-shadow 0.2s ease-in-out, transform 0.2s 0.3s ease-in-out, margin 0.2s ease-in-out;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 2px 2px rgba(0, 0, 0, 0.16);
+
+  border-radius: 2px;
+  position: relative;
+
+  .delete-icon {
+    cursor: pointer;
+  }
+
+  .comments-trigger {
+    display: block;
+    color: gray;
+    text-align: center;
+    padding: 5px;
+    margin: 0px;
+    cursor: pointer;
+  }
+
+  &.focused {
+    transform: scale(1.05);
+    box-shadow: 0 0 6px rgba(0, 0, 0, .16), 0 6px 12px rgba(0, 0, 0, .32);
+    z-index: 10;
+    margin-top: 50px;
+    margin-bottom: 50px;
+
+  }
+
+  header {
+    margin-bottom: 20px;
+
+    img {
+      border-radius: 50%;
+      background: @backgroundColor;
+      padding: 5px;
+      //      border: 1px solid #e5e5e5;
+      width: 64px;
+      position: absolute;
+      top: 5px;
+      left: 5px;
+    }
+  }
+
+  .details {
+    margin-left: 74px;
+
+    .title {
+      color: @mainColor;
+      display: block;
+      font-size: 150%;
+      font-weight: 200;
+      margin: 0px;
+    }
+
+    .publisher-name {
+      display: block;
+      color: gray;
+      font-weight: lighter;
+
+    }
+
+  }
+
+  .publish-date {
+    display: block;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    color: @borderColor;
+    font-size: 75%;
+  }
+
+  .comments {
+    background: #f6f7f8;
+    padding: 10px;
+    margin: -10px;
+    margin-top: 0px;
+    border-top: 1px solid #e1e2e3;
+    padding-top: 0px;
+  }
+
+  .content {
+    padding: 10px;
+    color: @textColor;
+  }
+
+  input[type="text"] {
+    outline: none;
+    border: @border;
+    border-radius: 2px;
+
+    padding: 5px;
+
+    transition: box-shadow 0.2s ease-in-out;
+
+    &:focus {
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    }
+  }
+}
+
+#app-header {
+  height: 50px;
+
+  img.logo {
+    height: 40px;
+    width: 40px;
+    margin-top: 5px;
+  }
+
+  #app-header-inner {
+    background: @mainColor;
+    //    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 2px 2px rgba(0, 0, 0, 0.16);
+    box-shadow: 0 0 6px rgba(0, 0, 0, .16), 0 6px 12px rgba(0, 0, 0, .32);
+    border: none!important;
+  }
+
+}
+
+#search-bar {
+
+  float: left;
+  width: 300px;
+  margin-left:20px;
+
+  ::-webkit-input-placeholder {
+    /* WebKit browsers */
+    color: rgba(255, 255, 255, 0.75);
+  }
+  :-moz-placeholder {
+    /* Mozilla Firefox 4 to 18 */
+    color: white opacity: 0.75;
+  }
+  ::-moz-placeholder {
+    /* Mozilla Firefox 19+ */
+    color: white opacity: 0.75;
+  }
+  :-ms-input-placeholder {
+    /* Internet Explorer 10+ */
+    color: rgba(255, 255, 255, 0.75);
+  }
+
+  * {
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+  }
+
+  .tags {
+    background: rgba(255, 255, 255, 0.25) !important;
+    border-radius: 2px !important;
+
+    color: white;
+  }
+
+  .suggestion-list {
+    background: rgba(255, 255, 255, 1) !important;
+    border-radius: 0px 0px 4px 4px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 2px 2px rgba(0, 0, 0, 0.16) !important;
+    border: 1px solid #e5e5e5;
+    margin-top: -10px;
+  }
+
+  .suggestion-item {
+    color: gray !important;
+  }
+
+  .suggestion-item em {
+    color: @mainColor !important;
+
+  }
+}
+
+.navbar-default .navbar-nav > li > a {
+  text-shadow: none;
+  color: rgba(255, 255, 255, 0.75)!important;
+  background: transparent!important;
+}
+
+.navbar-default .navbar-nav > .active > a {
+  background: #386FCB!important;
+  color: white!important;
+//  font-weight: bold;
+//  text-decoration: underline;
+}
+
+#user-img {
+  width: 43px;
+  margin-top: 5px;
+  padding: 3px;
+  background: white;
+}
+
+#user-name {
+  color: white;
+  margin: 0px;
+  margin-top: 3px;
+}

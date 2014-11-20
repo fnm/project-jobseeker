@@ -1,0 +1,88 @@
+<div id="news-feed">
+
+
+	<div class="feed-item" ng-repeat="news in newsFeed.slice(0,pageSize)"
+		ng-init="isFocused = false" ng-class="{'focused':isFocused}">
+
+		<header>
+
+			<img alt="140x140" ng-src="{{news.pictureUrl}}" class="img-circle" />
+
+			<span class="publish-date">{{news.publishDate | date:'hh:mm
+				dd/MM/yyyy'}}</span> <span><i class="fa fa-trash delete-post-icon"
+				ng-show="news.userId == userProfile.data.userId"
+				ng-click="deletePost(news.postId,$index)"></i></span>
+
+			<div class="details">
+				<label class="title">{{news.title}}</label> <label
+					class="publisher-name"> {{news.firstName}}
+					{{news.lastName}} </label>
+			</div>
+
+
+		</header>
+
+
+		<div class="content">{{ news.content }}</div>
+
+		<div class="comments" ng-controller="CommentCtrl">
+
+
+			<div class="comments-trigger" ng-show="!isShowComments"
+				ng-click="showComments()">View Comments</div>
+
+			<div class="comments-div">
+				<ul ng-show="isShowComments">
+					<div ng-repeat="comment in comments"
+						ng-mouseenter="comment.show = true" class="single-comment"
+						ng-mouseleave="comment.show = false">
+						<i class="fa fa-comment comment-icon"></i>{{comment.content}} <i
+							class="fa fa-trash delete-icon"
+							ng-show="comment.userId == userProfile.data.userId && comment.show"
+							ng-click="deleteComment(comment.commentId)"></i>
+
+
+						<!---->
+						<!--<img -->
+						<!---->
+						<!--ng-mouseenter="hover(comment)" ng-mouseleave="hover(comment)"-->
+						<!--style="width:15px; height :17px; border: 0 none; background: none"-->
+						<!--src="http://superadm.com/wp-content/uploads/2014/05/delete.png">-->
+
+					</div>
+				</ul>
+				<div>
+
+					<form class="commentForm"
+						ng-submit="addComment(this,userProfile.data.userId) ">
+
+						<input type="text" name="content"
+							placeholder="Enter comment here..." ng-model="commentText"
+							ng-submit="addComment(this,userProfile.data.userId)"
+							style="width: 100%; padding-bottom: 10px; maxlength: {{commentType.maxLen"
+							ng-focus="$parent.isFocused = true"
+							ng-blur="$parent.isFocused = false" />
+
+						<!--<input type="submit" value="Add Comment" class="btn btn-success"/>-->
+
+					</form>
+				</div>
+
+			</div>
+
+		</div>
+
+
+	</div>
+
+
+	<!--   {{newsFeedLength}}
+      {{userProfile.data.userId}} -->
+	<!-- newsLength-{{newsFeedLength}} -->
+
+	<!-- <div ng-repeat="n in newsFeed">{{n.postId}}</div> -->
+	<div align="center" paging page="currentPage" page-size="pageSize"
+		show-prev-next="true" news-feed-length="newsFeedLength"
+		news-feed="newsFeed" ng-init="pageSize = 10"></div>
+</div>
+

@@ -1,0 +1,64 @@
+ <style>
+.active[accordion-group].panel-heading {
+  background-color: black;
+  color: white;
+}
+</style>
+
+<div class="accordion">
+  <accordion >
+    <accordion-group    ng-repeat="news in newsFeed.slice(0,pageSize)"  is-open="accordion.status"  >
+       
+       <accordion-heading  >
+
+       <img alt="140x140" ng-src="{{userProfile.data.pictureUrl}}"
+							class="img-circle" /> <em> {{userProfile.data.firstName}} {{userProfile.data.lastName}} </em> -  {{news.title}}  <!-- <span ng-class="{'pending-delete': true}"> </span> --> 
+
+                  <img class="delete-icon" ng-click="deletePost(news.postId,$index)" ng-show="news.userId == userProfile.data.userId" style="width:15px; height :17px; border: 0 none; background: none" src="http://superadm.com/wp-content/uploads/2014/05/delete.png">
+
+	    </accordion-heading>
+    
+           
+                    {{ news.content }}
+                
+         <hr>
+         
+         
+        
+    
+     <div ng-controller="CommentCtrl"> <ul>
+        <li ng-repeat="comment in comments" ng-mouseenter="comment.show = true" ng-mouseleave="comment.show = false">{{comment.content}} 
+ 		 		<img  ng-click="deleteComment(comment.commentId)" ng-show="comment.userId == userProfile.data.userId && comment.show"  style="width:15px; height :17px; border: 0 none; background: none" src="http://superadm.com/wp-content/uploads/2014/05/delete.png">
+
+ 		
+      </li>
+      </ul>
+      <div ng-controller="validatecontroller">
+      <form name ="form">
+     
+      
+       <input type="text" name="content" form="commentForm" ng-model="singlePost.commentText" placeholder="Enter comment here..." 
+       ng-minlength="{{commentType.minLen}}" ng-maxlength="{{commentType.maxLen}}" style=" width:100%; padding-bottom:10px; maxlength:{{commentType.maxLen}}"></input>
+       			
+				 
+			
+				
+				 </form>
+         <form id="commentForm" class="commentForm" ng-submit="addComment(this,userProfile.data.userId)">
+                            <input type="submit" value="Add Comment" class="btn btn-success" style="display:none"/>  
+         </form>
+      </div>
+      </div> 
+      
+      
+
+				
+      
+      
+    </accordion-group>   
+  </accordion>
+
+
+			
+				</div>
+			

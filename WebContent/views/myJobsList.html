@@ -1,0 +1,29 @@
+<div class="my-joblist-item" ng-repeat="job in jobs"
+	ng-init="isFocused = false" ng-class="{'focused':isFocused}">
+	<div class="details">
+	<div class="status-tab closed-job" ng-show="job.status==3">CLOSED</div>
+<div class="status-tab accepted-job" ng-show="job.status==4">ACCPTED</div>
+<div class="status-tab inprocess-job" ng-show="job.status==2">IN PROCESS</div>
+<div class="status-tab pending-job" ng-show="job.status==1">PENDING</div>
+		<header>
+
+			<div class="title"
+				style="margin-top: 10px; margin-bottom: 10px; display: block">{{job.jobTitle}}</div>
+		</header>
+
+
+		<div class="content"
+			style="margin-top: 10px; margin-bottom: 10px; display: block">
+			<div style="margin-top: 10px; margin-bottom: 10px; display: block">
+				{{ job.description | limitTo:100}} ..</div>
+
+		</div>
+	</div>
+	<div class="button-container">
+		<a href="#/showMore"><button
+				class="button raised blue submit-button submit-button-more"
+				ng-click="showMore(job)">Show more</button>
+			<div class="center" fit></div> <paper-ripple fit></paper-ripple></a>
+
+	</div>
+</div>

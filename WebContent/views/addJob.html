@@ -1,0 +1,94 @@
+
+
+
+<div ng-controller="validatecontroller" class="job-form">
+
+	<div class="title">Add a new job</div>
+	<form name="myForm">
+
+		<label>Job title:</label> <input class="form-control"
+			placeholder="title" ng-model="job.jobTitle" name="title"
+			ng-minlength="{{titleType.minLen}}"
+			ng-maxlength="{{titleType.maxLen}}" required> <small
+			class="error" ng-show="myForm.title.$error.minlength"> title
+			is required to be at least {{titleType.minLen}} characters </small> <small
+			class="error" ng-show="myForm.title.$error.maxlength"> title
+			is required to be at max {{titleType.maxLen}}characters </small><br> <label>Company:</label>
+		<input class="form-control" placeholder="company Name"
+			ng-model="job.companyName" name="companyName"
+			ng-minlength="{{companyNameType.minLen}}"
+			ng-maxlength="{{companyNameType.maxLen}}"> <small
+			class="error" ng-show="myForm.companyName.$error.minlength">
+			CompanyName is required to be at least {{companyNameType.minLen}}
+			characters </small> <small class="error"
+			ng-show="myForm.companyName.$error.maxlength"> Company Name
+			is required to be at max {{companyNameType.maxLen}}characters </small><br>
+		<label>Company Address:</label> <input class="form-control"
+			placeholder="address" ng-model="job.address" name="companyAddress"
+			ng-minlength="{{companyAddressType.minLen}}"
+			ng-maxlength="{{companyAddressType.maxLen}}"> <small
+			class="error" ng-show="myForm.companyAddress.$error.minlength">
+			companyAddres is required to be at least
+			{{companyAddressType.minLen}} characters </small> <small class="error"
+			ng-show="myForm.companyAddress.$error.maxlength">
+			companyAddres is required to be at max
+			{{companyAddressType.maxLen}}characters </small> <br> <label>Contact
+			person details:</label> <input class="form-control" placeholder="contact"
+			ng-model="job.contact" name="conatct"
+			ng-minlength="{{infoForContactType.minLen}}"
+			ng-maxlength="{{infoForContactType.maxLen}}"> <small
+			class="error" ng-show="myForm.conatct.$error.minlength"> Info
+			for Contact person is required to be at least
+			{{infoForContactType.minLen}} characters </small> <small class="error"
+			ng-show="myForm.conatct.$error.maxlength"> Info for Contact
+			person is required to be at max
+			{{infoForContactType.maxLen}}characters </small> <br> <label>Description:</label>
+		<textarea class="form-control" placeholder="description"
+			ng-model="job.description" name="Description"
+			ng-minlength="{{descriptionType.minLen}}"
+			ng-maxlength="{{descriptionType.maxLen}}"></textarea>
+
+		<small class="error" ng-show="myForm.Description.$error.minlength">
+			JobDescription is required to be at least {{descriptionType.minLen}}
+			characters </small> <small class="error"
+			ng-show="myForm.Description.$error.maxlength"> JobDescription
+			is required to be at max {{descriptionType.minLen}}characters </small> <br>
+
+
+		<div ng-show="userProfile.data.userType==1" class="sharing-options">
+
+			<div class="control-group">
+				<label class="control-label">Sharing Options:</label>
+				<div class="controls">
+					<label class="radio-inline"> <input type="radio"
+						class="input-control" id="private" ng-value="true"
+						ng-model="job.isPrivate" ng-checked="true" /> keep private
+					</label> <label class="radio-inline"> <input type="radio"
+						ng-value="false" id="public" class="input-control"
+						ng-model="job.isPrivate" /> share with everyone
+					</label>
+				</div>
+			</div>
+
+		</div>
+
+
+		<tags-input class ="tags-input" ng-model="job.tags" placeholder="Add a tag"
+			replace-spaces-with-dashes="false" add-from-autocomplete-only="true"
+			on-tag-added="tagAdded($tag)" min-length="0"
+			on-tag-removed="tagRemoved($tag)"> <auto-complete
+			source="loadTags($query)" min-length="0" debounce-delay="0"
+			max-results-to-show="15"></auto-complete> </tags-input>
+		<br>
+		<button ng-disabled="myForm.$invalid"
+			class="button raised blue submit-button" ng-click="addJob()">Submit</button>
+		<div class="center" fit></div>
+		<paper-ripple fit></paper-ripple>
+
+
+
+
+	</form>
+</div>
+
+

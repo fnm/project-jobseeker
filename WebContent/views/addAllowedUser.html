@@ -1,0 +1,39 @@
+<!-- <style>
+select{
+color : red;
+
+}
+
+input{
+color : red;
+
+}
+</style> -->
+
+
+<div ng-controller="AddAllowedUser" class="user-form">
+
+<div class="form-title"> Authorize a user</div>
+	<form name="myForm">
+
+
+		<label>E-mail: </label>
+		<div>
+			<input type="email" placeholder="user E-mail" name="email"
+				ng-model="user.userEmail" class="input-allowed" required> <small class="error"
+				ng-show="myForm.email.$error.email"> Not valid email! </small>
+
+		</div>
+		<br>
+		<div>
+			<label>User Type:</label> <br><select  class="input-allowed" ng-model="user.userType"
+				ng-options="type.userTypeName for type in types" required></select> <br>
+		</div>
+		
+		<button ng-disabled="myForm.$invalid"
+			class="button raised blue submit-button" ng-click="addUser()">Submit</button>
+		<div class="center" fit></div>
+		<paper-ripple fit></paper-ripple>
+	</form>
+</div>
+

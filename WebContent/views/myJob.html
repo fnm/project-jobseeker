@@ -1,0 +1,157 @@
+<div class="job-details">
+	<div>
+		<div>
+			<span class="job-details-titles">Job title: </span>{{
+			jobEntity.jobTitle }}
+		</div>
+
+
+
+		<div>
+			<span class="job-details-titles">Address: </span> {{jobEntity.address
+			}} <br>
+		</div>
+		<div>
+			<span class="job-details-titles">Details: </span>{{
+			jobEntity.description}}<br>
+		</div>
+		<div>
+			<span class="job-details-titles">Company: </span>{{
+			jobEntity.companyName}}<br>
+		</div>
+		<div>
+			<span class="job-details-titles">Contact Person: </span>{{
+			jobEntity.contact}}<br>
+		</div>
+	</div>
+
+	<div ng-show="jobEntity.status == 1">
+		<div class="accept">
+			<button class="button raised green submit-button"
+				ng-click="accept(job)">Accept</button>
+			<div class="center" fit></div>
+			<paper-ripple fit></paper-ripple>
+		</div>
+		<div class="reject">
+			<button class="button raised red submit-button"
+				ng-click="reject(job)">Reject</button>
+			<div class="center" fit></div>
+			<paper-ripple fit></paper-ripple>
+
+		</div>
+	</div>
+
+	<div ng-show="jobEntity.status == 2">
+		<div>
+			<div class="event-buttons">
+
+				<div class="button">
+					<a href="#/addEvent"><div class="center" fit>New Event</div></a>
+					<paper-ripple fit></paper-ripple>
+				</div>
+				<div class="button label-blue">
+					<div class="center" ng-click="eventClose()" fit>Terminate</div>
+					<paper-ripple fit></paper-ripple>
+				</div>
+
+
+			</div>
+			<hr>
+			<div ng-repeat="event in events">
+				<div class="dialog event-box">
+					<div class="content">
+						<div class="title">{{event.title}} - {{event.publishDate }}</div>
+
+						<div ng-show="!$first || $last && (!($first && $last))">
+							<span class="event-subtitles">Description: </span>
+							{{event.description}}
+						</div>
+						<div ng-show="!$first || !$last">
+							<span class="event-subtitles">Notes:</span> {{event.notes }}
+						</div>
+						<div ng-show="!$first || !$last">
+							<span class="event-subtitles">Address: </span> {{event.address }}
+						</div>
+						<div ng-show="!$first || !$last">
+							<span class="event-subtitles">Due: </span>{{event.due}}
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+
+	<div ng-show="jobEntity.status == 3">
+		<hr>
+		<div ng-repeat="event in events">
+			<div class="dialog event-box">
+				<div class="content">
+					<div class="title">{{event.title}} - {{event.publishDate }}</div>
+
+					<div ng-show="!$first || $last && (!($first && $last))">
+						<span class="event-subtitles">Description: </span>
+						{{event.description}}
+					</div>
+					<div ng-show="!$first && !$last">
+						<span class="event-subtitles">Notes:</span> {{event.notes }}
+					</div>
+					<div ng-show="!$first && !$last">
+						<span class="event-subtitles">Address: </span> {{event.address }}
+					</div>
+					<div ng-show="!$first && !$last">
+						<span class="event-subtitles">Due: </span>{{event.due}}
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+
+	<div ng-show="jobEntity.status == 4">
+		<hr>
+		<div ng-repeat="event in events">
+			<div class="dialog event-box">
+				<div class="content">
+					<div class="title">{{event.title}} - {{event.publishDate }}</div>
+					<div ng-show="!$first || $last && (!($first && $last))">
+						<span class="event-subtitles">Description: </span>
+						{{event.description}}
+					</div>
+					<div ng-show="!$first && !$last">
+						<span class="event-subtitles">Notes:</span> {{event.notes }}
+					</div>
+					<div ng-show="!$first && !$last">
+						<span class="event-subtitles">Address: </span> {{event.address }}
+					</div>
+					<div ng-show="!$first && !$last">
+						<span class="event-subtitles">Due: </span>{{event.due}}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div ng-show="eventClose == 1">
+		<table>
+			<tr>
+				<td><input type="text" class="form-control"
+					placeholder="Reason for closing" ng-model="eventReason" /></td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" class="form-control"
+					placeholder="status" ng-model="eventStatus">Accepted for
+					job</td>
+			</tr>
+
+		</table>
+		<br>
+		<button class="addEventBtn" ng-click="CloseMyJobLifeCycle()">close</button>
+	</div>
+
+</div>

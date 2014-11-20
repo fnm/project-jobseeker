@@ -1,0 +1,56 @@
+<div >
+
+	<table>
+		
+		<tr>
+			<td>
+				<input class="form-control" placeholder="jobId" ng-model="jobId">
+			</td>
+		</tr>
+		
+			<tr>
+			<td>
+				<input class="form-control" placeholder="title" ng-model="JobTitle">
+			</td>
+		</tr>
+		
+		<tr>
+			<td>
+				<input class="form-control" placeholder="company" ng-model="companyName">
+			</td>
+		</tr>
+		
+		<tr>
+			<td>
+				<input class="form-control" placeholder="address" ng-model="address">
+			</td>
+		</tr>
+		
+		<tr>
+			<td>
+				<input class="form-control" placeholder="contact" ng-model="contact">
+			</td>
+		</tr>
+		
+		<tr>
+			<td>
+				<select class="form-control" placeholder="jobType" ng-model="jobType"> 
+					<option value="partial">Part Time</option>
+					<option value="full">Full Time</option>
+				</select>
+			</td>
+		</tr>
+		
+		<tr>
+			<td>
+				<textarea class="form-control" placeholder="description" ng-model="description"></textarea>
+			</td>
+		</tr>
+	
+	</table>
+	
+	<br>
+	
+	<button class="updateJobBtn" ng-click="updateJob()">Update</button>
+	
+</div>

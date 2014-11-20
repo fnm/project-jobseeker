@@ -1,0 +1,54 @@
+
+
+<div ng-controller="validatecontroller" class="post-form">
+	<div class="title">Add a new post</div>
+
+	<form name="myForm">
+		<label>Post Title</label> <input class="form-control"
+			placeholder="title" name="title" ng-model="post.title"
+			ng-minlength="{{titleType.minLen}}"
+			ng-maxlength="{{titleType.maxLen}}" required> <small
+			class="error" ng-show="myForm.title.$error.minlength"> title
+			is required to be at least {{titleType.minLen}} characters </small> <small
+			class="error" ng-show="myForm.title.$error.maxlength"> title
+			is required to be at max {{titleType.maxLen}}characters </small><br> <label>Content</label>
+		<textarea class="form-control" name="content" placeholder="content"
+			ng-minlength="{{contentType.minLen}}"
+			ng-maxlength="{{contentType.maxLen}}" ng-model="post.content"></textarea>
+
+
+		<small class="error" ng-show="myForm.content.$error.minlength">
+			content is required to be at least {{contentType.minLen}} characters
+		</small> <small class="error" ng-show="myForm.content.$error.maxlength">
+			content is required to be max {{contentType.maxLen}} characters </small>
+
+
+
+		<tags-input class ="tags-input" ng-model="post.tags" placeholder="Add a tag"
+			replace-spaces-with-dashes="false" add-from-autocomplete-only="true"
+			on-tag-added="tagAdded($tag)" min-length="0"
+			on-tag-removed="tagRemoved($tag)"> <auto-complete
+			source="loadTags($query)" min-length="0" debounce-delay="0"
+			max-results-to-show="15"></auto-complete> </tags-input>
+		<br>
+
+		<button ng-disabled="myForm.$invalid"
+			class="button raised blue submit-button" ng-click="addPost()">Share
+			Post</button>
+		<div class="center" fit></div>
+		<paper-ripple fit></paper-ripple>
+
+
+
+
+
+	</form>
+
+
+</div>
+
+
+
+
+
+

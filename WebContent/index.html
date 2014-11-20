@@ -1,0 +1,144 @@
+<!doctype html>
+<html class="no-js">
+<title>JobSeeker</title>
+<head>
+<meta charset="utf-8">
+<title>JobSeeker v0.1 Beta</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!--AngularJs-->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.1/angular.min.js"></script>
+<script
+	src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.1/angular-route.js"></script>
+<!--AngularJs-->
+
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+<link
+	href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
+	rel="stylesheet">
+
+
+<link rel="stylesheet" type="text/css" href="styles/loading-bar.css">
+<link rel="stylesheet" type="text/css"
+	href="styles/ng-tags-input.min.css">
+<link rel="stylesheet" type="text/css"
+	href="scripts/plugin/lib/sweet-alert.css">
+
+
+<!--<link rel="stylesheet" type="text/css" href="styles/indexStyle.css">-->
+<!--<link rel="stylesheet" type="text/css" href="styles/header.css">-->
+<!--<link rel="stylesheet" type="text/css" href="styles/Main.css">-->
+
+
+<link rel="stylesheet" type="text/css" href="styles/style.css">
+
+
+</head>
+<body ng-app="app" ng-controller="LinkedinCtrl" id="appBody">
+
+	<div class="page-content">
+		<div ng-controller="AuthenticationCtrl">
+			<div>
+				<header ng-controller="HeaderCtrl" ng-include="'views/header.html'"
+					ng-show="userProfile.data.loggedIn"></header>
+			</div>
+
+			<div class="row clearfix">
+				<div class="col-md-12 column">
+					<div class="row clearfix">
+						<div class="col-md-3 column"></div>
+						<div class="col-md-6 column">
+							<div class="viewstyle">
+								<ng-view></ng-view>
+							</div>
+						</div>
+						<div class="col-md-3 column"></div>
+					</div>
+				</div>
+			</div>
+
+
+			<script src="scripts/plugin/lib/sweet-alert.min.js"></script>
+
+
+			<!--Controllers-->
+			<script src="scripts/app.js"></script>
+			<script src="scripts/controllers\authentication.js"></script>
+			<script src="scripts/controllers\login.js"></script>
+			<script src="scripts/controllers\about.js"></script>
+			<script src="scripts/controllers\addPost.js"></script>
+			<script src="scripts/controllers\deletePost.js"></script>
+			<script src="scripts/controllers\linkedInAPI.js"></script>
+			<script src="scripts/controllers\linkedIn.js"></script>
+			<script src="scripts/controllers\main.js"></script>
+			<script src="scripts/controllers\addJob.js"></script>
+			<script src="scripts/controllers\newsFeed.js"></script>
+			<script src="scripts/controllers\header.js"></script>
+			<script src="scripts/controllers\addAllowedUser.js"></script>
+			<script src="scripts/controllers\myJobsList.js"></script>
+			<script src="scripts/controllers\myJob.js"></script>
+			<script src="scripts/controllers\addEventToJob.js"></script>
+			<script src="scripts/controllers\search.js"></script>
+			<script src="scripts/controllers\validate.js"></script>
+			<script src="scripts/controllers\searchResult.js"></script>
+			<script src="scripts/controllers\singlePost.js"></script>
+			<script src="scripts/controllers\publicJob.js"></script>
+			<!--  muhammad daqqa -->
+			<script src="scripts/controllers\notification.js"></script>
+
+			<!--Controllers-->
+
+			<!--Services-->
+			<script src="scripts/services\serviceExample.js"></script>
+			<script src="scripts/services\addAllowedUserService.js"></script>
+			<script src="scripts/services\entitiesService.js"></script>
+			<script src="scripts/services\postRequestsService.js"></script>
+			<script src="scripts/services\commentRequestsService.js"></script>
+			<script src="scripts/services\linkedInService.js"></script>
+			<script src="scripts/services\jobRequestService.js"></script>
+			<script src="scripts/services\initiallyService.js"></script>
+			<script src="scripts/services\authenticationService.js"></script>
+			<script src="scripts/services\jobIdService.js"></script>
+			<script src="scripts/services\publicJobIdService.js"></script>
+			<!--  muhammad daqqa -->
+			<script src="scripts/services\eventRequestService.js"></script>
+			<script src="scripts/services\publicJobRequestService.js"></script>
+			<!--  muhammad daqqa -->
+			<script src="scripts/services\notificationService.js"></script>
+
+			<!--Services-->
+
+			<!--directives-->
+			<script src="scripts/directives\paging.js"></script>
+<!-- 			<script src="scripts/directives\angular-utf8-base64.js"></script>
+ -->			<script src="scripts/directives\loading-bar.js"></script>
+			<script src="styles/ui-bootstrap-tpls-0.11.2.js"></script>
+			<!--directives-->
+
+			<!--Styles-->
+
+
+			<script src="styles/ng-tags-input.min.js"></script>
+
+			<!-- Plugin files -->
+			<script src="scripts/plugin\datetimepicker-tpls-0.11.js"></script>
+			<!-- Plugin files -->
+
+			<script type="text/javascript"
+				src="http://platform.linkedin.com/in.js">
+            api_key: 77aowlo9xk6e1y
+            onLoad: onLinkedInLoad
+            authorize: true
+        </script>
+
+		</div>
+	</div>
+</body>
+
+</html>
+<!-- for Deploy 77aowlo9xk6e1y -->
+<!-- local host 774eaouo3vudxd -->

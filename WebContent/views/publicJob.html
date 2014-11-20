@@ -1,0 +1,68 @@
+<div class="job-details">
+	<div>
+		<div>
+			<span class="job-details-titles">Job title: </span>{{
+			publicJobEntity.jobTitle }}
+		</div>
+
+
+
+		<div>
+			<span class="job-details-titles">Address: </span>
+			{{publicJobEntity.address }} <br>
+		</div>
+		<div>
+			<span class="job-details-titles">Details: </span>{{
+			publicJobEntity.description}}<br>
+		</div>
+		<div>
+			<span class="job-details-titles">Company: </span>{{
+			publicJobEntity.companyName}}<br>
+		</div>
+		<div>
+			<span class="job-details-titles">Contact Person: </span>{{
+			publicJobEntity.contact}}<br>
+		</div>
+		<div>
+			<a href="#/newsFeed"><button ng-click="deleteJob()"
+					ng-show="{{publicJobEntity.submitterUserId == userProfile.data.userId}}">
+					<img
+						style="width: 15px; height: 17px; border: 0 none; background: none"
+						src="http://superadm.com/wp-content/uploads/2014/05/delete.png">
+				</button></a>
+		</div>
+	</div>
+	<div>
+
+		<tags-input ng-model="tags" ng-show="userProfile.data.userType == 2"
+			placeholder="Add a User" replace-spaces-with-dashes="false"
+			add-from-autocomplete-only="true" on-tag-added="tagAdded($tag)"
+			min-length="0" on-tag-removed="tagRemoved($tag)"> <auto-complete
+			source="loadTags($query)" min-length="0" debounce-delay="0"
+			max-results-to-show="15"></auto-complete> </tags-input>
+
+
+
+		<button ng-click="suggestJob()"
+			ng-show="userProfile.data.userType == 2"
+			class="button raised blue submit-button">Suggest Job</button>
+		<div class="center" fit></div>
+		<paper-ripple fit></paper-ripple>
+
+
+
+
+
+		<button ng-click="applyForJob()"
+			ng-show="userProfile.data.userType == 1"
+			class="button raised blue submit-button" style="margin-left: 5px">Apply For Job</button>
+		<div class="center" fit></div>
+		<paper-ripple fit></paper-ripple>
+		<!--   <a href="#/addEvent"><button>Add Event</button></a> -->
+	</div>
+
+
+</div>
+
+
+

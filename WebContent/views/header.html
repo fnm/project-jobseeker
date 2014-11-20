@@ -1,0 +1,99 @@
+<style>
+</style>
+<div class="container" id="app-header">
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<nav id="app-header-inner"
+				class="navbar navbar-default navbar-fixed-top" role="navigation">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse"
+						data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span><span
+							class="icon-bar"></span><span class="icon-bar"></span><span
+							class="icon-bar"></span>
+					</button>
+					<a href="#/newsFeed"><img class="logo"
+						src="imgs\logo-white.png"></a>
+				</div>
+
+				<div class="collapse navbar-collapse"
+					id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li ng-repeat="page in navPagesList" ng-click="select($index)"
+							ng-class="{active: $index===selectedIndex}"><a
+							href="#/{{page.target}}"
+							ng-show="(userProfile.data.userType == page.show) || (page.show == 0)">{{page.name}}</a>
+						</li>
+
+
+						<div id="search-bar" ng-controller="searchController">
+
+							<form role="search" ng-submit="search()">
+								<div class="form-group">
+									<div class="search-input" class="search-textbox">
+										<tags-input ng-model="tags" min-length="0" placeholder="Search by tag"
+											replace-spaces-with-dashes="false"
+											add-from-autocomplete-only="true"
+											on-tag-added="tagAdded($tag)"
+											on-tag-removed="tagRemoved($tag)"> <auto-complete
+											source="loadTags($query)" min-length="0" debounce-delay="0"
+											max-results-to-show="10"></auto-complete> </tags-input>
+									</div>
+									<!--<div class="search-input">-->
+									<!--<button ng-click="search()" type="submit"-->
+									<!--class="btn btn-xs btn-info">search-->
+									<!--</button>-->
+									<!--<input type="radio" ng-model="flagSearch" value="post">Post-->
+									<!--<input type="radio" ng-model="flagSearch" value="job">Job-->
+									<!--</div>-->
+								</div>
+
+							</form>
+						</div>
+
+
+					</ul>
+					<ul class="nav navbar-nav pull-right ">
+						<li ng-show="userProfile.data.userType==1"
+							ng-click="select($index)"
+							ng-class="{active: $index===selectedIndex}"><a
+							href="#/myJobList">My Jobs List</a></li>
+						<li ng-show="userProfile.data.userType==2"
+							ng-click="select($index)"
+							ng-class="{active: $index===selectedIndex}"><a
+							href="#/addAllowedUser">Authorize a user</a></li>
+						<li>
+						<li ng-controller="notificationCtrl" ng-click="getNotofication()">
+							<span class="dropdown" on-toggle="toggled(open)"> <a href
+								class="dropdown-toggle">
+									<div class="notification-container">
+										<i class="fa fa-bell-o fa-lg"></i>
+									</div>
+							</a>
+								<ul class="dropdown-menu notification-list">
+									<li ng-repeat="choice in items"><a
+										ng-click="getNotificationnEntity($index)">{{choice.text |
+											limitTo:37}}..</a></li>
+								</ul>
+						</span>
+						</li>
+
+						<li><img id="user-img" alt="140x140"
+							ng-src="{{userProfile.data.pictureUrl}}" class="img-circle" /></li>
+						<li><a ng-href="{{userProfile.data.publicProfileUrl}}">
+								<h5 id="user-name" style="margin-top: 3px;"
+									class="text-left text-info">
+									{{userProfile.data.firstName}} {{userProfile.data.lastName}}</h5>
+						</a></li>
+						<li>
+							<button class="btn btn-primary logout-button" style="margin-top: 6px;"
+								type="button" ng-click="logoutLinkedIn()">Logout</button>
+						</li>
+
+					</ul>
+				</div>
+
+			</nav>
+		</div>
+	</div>
+</div>
